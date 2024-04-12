@@ -36,7 +36,7 @@ export default function AddTokenToMigrateReseve({ isSelected }) {
     //   console.log('txMint',txMint);
       const txApprove = await humanityCoinContractInstance?.approve(
         migrateContractAddress,
-        '10000000000000000000000',
+        (Number(addToken.amount) * Number(1000000000000000000)).toString(),
         { gasLimit: '2000000' }
       );
       console.log('txApprove',txApprove);
@@ -55,9 +55,9 @@ export default function AddTokenToMigrateReseve({ isSelected }) {
     } else {
       setIsFormValid(true);
       try {
-        console.log('DATA ON SUBMISSION', addToken , '100000000000000000000'.length);
-        // await approveHumanityCoin();
-        const tx = await contractInstance?.addTokensToMigrationReserve('100000000000000000000', {
+        console.log('DATA ON SUBMISSION', addToken );
+        await approveHumanityCoin();
+        const tx = await contractInstance?.addTokensToMigrationReserve((Number(addToken.amount) * Number(1000000000000000000)).toString(), {
           gasLimit: '2000000',
         });
         console.log('tx', tx);

@@ -1,7 +1,7 @@
 import React from "react";
-import Bitcoin from "../../Assets/Images/usdtcomb.png";
-import ethereum from "../../Assets/Images/usdtcomb.png";
-import eth from "../../Assets/Images/usdtcomb.png";
+import Bitcoin from "../../Assets/Images/bit-coin.svg";
+import ethereum from "../../Assets/Images/ethereumcoin.svg";
+import eth from "../../Assets/Images/ethereumcoin.svg";
 import tether from "../../Assets/Images/usdtcomb.png";
 import arrow from "../../Assets/Images/usdtcomb.png"
 // import { Greengraph, Redgraph } from "../../Assets/Svg/Svg.jsx";
@@ -56,7 +56,7 @@ const data = [
     hash: 1,
     tokenName: (
       <p className="hashdata">
-        <img src={eth} alt="imgs" />
+        <img src={eth} alt="imgs" style={{ width:"55px",height:"55px" }} />
         Ethereum
         <span>ETH</span>
       </p>
@@ -77,7 +77,7 @@ const data = [
     hash: 2,
     tokenName: (
       <p className="hashdata">
-        <img src={Bitcoin} alt="imgs" />
+        <img src={Bitcoin} alt="imgs" style={{ width:"55px",height:"55px" }}  />
         Bitcoin
         <span>BTC</span>
       </p>
@@ -98,7 +98,7 @@ const data = [
     hash: 3,
     tokenName: (
       <p className="hashdata">
-        <img src={tether} alt="imgs" />
+        <img src={tether} alt="imgs"  style={{ width:"55px",height:"55px" }} />
         Tether USD <span>USDT</span>
         <span>ETH</span>
       </p>

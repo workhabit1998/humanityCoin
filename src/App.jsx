@@ -9,12 +9,6 @@ import MainLayout from './Components/Layout/MainLayout/mainLayout';
 import { useConnectMetamask } from "./customHooks/useConnectMetamask"
 
 function App() {
-  const { contractInstance  } = useConnectMetamask();
-
-
-  // useEffect(()=> {
-  //   setHookActive(true)
-  // },[])
 
   return (
     <>

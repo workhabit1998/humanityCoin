@@ -13,7 +13,7 @@ export default function Migrate() {
   const { contractInstance , tokenAContractInstance } = useConnectMetamask();
   const [oldAmount, setOldAmount] = useState('');
   const [newAmount, setNewAmount] = useState('0.00');
-  const [isFormValid, setIsFormValid] = useState(false);
+  const [isFormValid, setIsFormValid] = useState(true);
 
   const HandleInputchange = (event) => {
     let isValid = true;

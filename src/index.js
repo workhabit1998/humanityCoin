@@ -6,23 +6,23 @@ import './i18n';
 import { BrowserRouter } from 'react-router-dom';
 import { InternetConnectionWraper } from './Components/internetConnectionWraper';
 import 'antd/dist/antd.min.css';
-import { Web3ModalProvider } from './Components/Layout/AppLayout/providerWalletConnect';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 import { persister, store } from './redux/store';
+import Web3ModalWrapper from './web3ModalProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <BrowserRouter>
-    <InternetConnectionWraper>
-      <Provider store={store}>
+    <Provider store={store}>
       <PersistGate loading={null} persistor={persister}>
-          <Web3ModalProvider>
+        <InternetConnectionWraper>
+          <Web3ModalWrapper>
             <App />
-          </Web3ModalProvider>
+          </Web3ModalWrapper>
+        </InternetConnectionWraper>
       </PersistGate>
-      </Provider>
-    </InternetConnectionWraper>
+    </Provider>
   </BrowserRouter>
 );

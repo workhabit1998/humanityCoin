@@ -2,35 +2,12 @@ import React, { useState } from 'react';
 import { Button } from 'antd';
 import './LiquidyProvider.scss';
 import { Link } from 'react-router-dom';
-import backicon from '../../Assets/Images/back-Arrow.svg';
-import Select from 'react-select';
-import btc from '../../Assets/Images/btc.svg';
-import { WalletIcon } from '../../Assets/Svg/Svg.jsx';
-import eth from '../../Assets/Images/ethereumcoin.svg';
-
-const options = [
-  {
-    value: 'btc',
-    label: (
-      <p className="selectIcon">
-        <img src={btc} alt="imgs" />
-        ETH
-      </p>
-    ),
-  },
-  {
-    value: 'eth',
-    label: (
-      <p className="selectIcon">
-        <img src={eth} alt="imgs" />
-        ETH
-      </p>
-    ),
-  },
-];
+import { LiquidityForm } from "./LiquidityForm.jsx"
+import { GetPair } from './GetPair.jsx';
 
 function LiquidyProvider() {
   const [isFormActive, setIsFormActive] = useState(false);
+  const [selectedForm,setSelectedForm] = useState(1);
 
   const items = [
     {
@@ -39,124 +16,7 @@ function LiquidyProvider() {
     },
   ];
 
-  const LiquidityForm = () => {
-    const [selectedOption, setSelectedOption] = useState(null);
-
-    return (
-      <div className="AddLeqSec">
-        <div className="addLiq">
-          <div className="containerAdLiq">
-            <div className="createNewPool">
-              {/* <img src={backicon} alt="imgs" /> */}
-              <div>
-                <h3>Add Liquidity</h3>
-                <p>
-                  Create a new pool or create a liquidity position on an
-                  existing pool.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="containerAdLiq">
-          <div className="addLiqbottomSec">
-            <div className="leftdata">
-              <h4>Network</h4>
-              <p>Select the network you would like to provide liquidity on.</p>
-            </div>
-            <div className="rightdata">
-              <div className="topSelect selectItm">
-                <Select
-                  defaultValue={selectedOption}
-                  onChange={setSelectedOption}
-                  options={options}
-                />
-              </div>
-            </div>
-          </div>
-          <div className="addLiqbottomSec">
-            <div className="leftdata">
-              <h4>Tokens</h4>
-              <p>Which token pair would you like to add liquidity to.</p>
-            </div>
-            <div className="right">
-              <div
-                className="topSelect"
-                style={{ display: 'flex', gap: '20px' }}
-              >
-                <Select
-                  defaultValue={selectedOption}
-                  onChange={setSelectedOption}
-                  options={options}
-                />
-                <Select
-                  defaultValue={selectedOption}
-                  onChange={setSelectedOption}
-                  options={options}
-                />
-              </div>
-            </div>
-          </div>
-          <div className="addLiqbottomSec">
-            <div className="leftdata">
-              <h4>Deposit</h4>
-              <p>Select the amount of tokens you want to deposit</p>
-            </div>
-            <div className="right">
-              <div className="ethDiv">
-                <div className="ethfirst">
-                  <h4>0.0</h4>
-                  <Select
-                    defaultValue={selectedOption}
-                    onChange={setSelectedOption}
-                    options={options}
-                  />
-                </div>
-                <div className="ethsecond">
-                  <h4>
-                    $0.<span>00</span>
-                  </h4>
-                  <h4>
-                    <WalletIcon />
-                    0.<span>00</span>
-                  </h4>
-                </div>
-              </div>
-              <div className="ethDiv">
-                <div className="ethfirst">
-                  <h4>0.0</h4>
-                  <Select
-                    defaultValue={selectedOption}
-                    onChange={setSelectedOption}
-                    options={options}
-                  />
-                </div>
-                <div className="ethsecond">
-                  <h4>
-                    $0.<span>00</span>
-                  </h4>
-                  <h4>
-                    <WalletIcon />
-                    0.<span>00</span>
-                  </h4>
-                </div>
-              </div>
-              <Button type="dark" className="plusBtn">
-                +
-              </Button>
-              <Button
-                className="pinkbtn"
-                style={{ width: '100%', marginTop: '20px' }}
-              >
-                Connect Wallet
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  };
+  
 
   return (
     <div className="liquidyDiv">
@@ -189,26 +49,34 @@ function LiquidyProvider() {
           </Dropdown> */}
           </div>
           <div className="right">
-            {/* <Button className="transBtn">Create a pair</Button>
-          <Button className="menuBtn">Import pool</Button> */}
+            <Button className="transBtn"
+            
+            onClick={() => {
+              if (selectedForm === 2 ) {
+                setSelectedForm(1);
+              }
+            }}
+
+
+            >Get Pair</Button>
+          {/* <Button className="menuBtn">Import pool</Button> */}
             <Button
               className="menuBtn"
               onClick={() => {
-                if (isFormActive) {
-                  setIsFormActive(false);
-                } else {
-                  setIsFormActive(true);
+                if (selectedForm === 1 ) {
+                  setSelectedForm(2);
                 }
               }}
             >
-              {isFormActive ? 'Cancel' : 'Add V2 liquidity'}{' '}
+              Add V2 liquidity
             </Button>
           </div>
         </div>
         {/* <div className="connectYourLiq">
           Connect to a wallet to view your liquidity.
         </div> */}
-        {isFormActive ? <LiquidityForm /> : null}
+        {selectedForm === 2  ? <LiquidityForm /> : <GetPair/>}
+        {/* <LiquidityForm />  */}
       </div>
     </div>
   );

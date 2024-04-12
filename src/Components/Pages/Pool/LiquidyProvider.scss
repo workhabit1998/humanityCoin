@@ -143,8 +143,30 @@
         position: relative;
         width: 100%;
         .topSelect {
-          max-width: 100px;
+          min-width: 140px;
           width: 100%;
+        }
+        .centered-button{
+          button{
+            width: 100%;
+          border-radius: 10px;
+          background-color: rgb(49, 28, 49);
+          height: 60px;
+          color: rgb(252, 114, 255);
+          @include fluid-type(320px, 1920px, 14px, 16px);
+          margin-top: 5px;
+          font-weight: 600;
+          margin-top: 10px;
+          &:hover,
+          :active,
+          :focus,
+          :focus-within,
+          :focus-visible {
+            background-color: rgb(49, 28, 49) !important;
+            opacity: 0.4;
+            color: rgb(252, 114, 255);
+          }
+          }
         }
         .ethDiv {
           background-color: rgba(1, 1, 1, 0.3);
@@ -173,6 +195,72 @@
               svg {
                 margin-right: 8px;
               }
+            }
+            input{
+              height: 60px;
+              width: 90%;
+              background-color: transparent;
+              border-radius: 15px;
+              display: flex;
+              flex-direction: column;
+              color: #959595;
+              opacity: 0.8;
+              font-weight: 400;
+              padding-left: 10px;
+              font-size: 18px;
+              outline-width: 0px;
+            }
+          }
+          .css-13cymwt-control {
+            border-radius: 30px !important;
+            padding: 3px 5px !important;
+          }
+          .css-t3ipsp-control {
+            border-radius: 30px !important;
+            padding: 3px 5px !important;
+          }
+        }
+        .pairDiv{
+          background-color: rgba(1, 1, 1, 0.3);
+          border-radius: 20px;
+          margin-bottom: 15px;
+          border: 1px solid #3f3f3f;
+          padding: 15px 20px;
+          .ethfirst,
+          .ethsecond {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            h4 {
+              color: rgb(155, 155, 155);
+              @include fluid-type(320px, 1920px, 20px, 26px);
+            }
+          }
+          .ethsecond {
+            padding-top: 2px;
+            h4 {
+              @include fluid-type(320px, 1920px, 16px, 18px);
+              span {
+                color: #fff;
+                @include fluid-type(320px, 1920px, 13px, 14px);
+              }
+              svg {
+                margin-right: 8px;
+              }
+            }
+            input{
+              height: 60px;
+              width: 90%;
+              background-color: transparent;
+              border-radius: 15px;
+              display: flex;
+              flex-direction: column;
+              color: #959595;
+              opacity: 0.8;
+              font-weight: 400;
+              padding-left: 10px;
+              font-size: 18px;
+              outline-width: 0px;
             }
           }
           .css-13cymwt-control {

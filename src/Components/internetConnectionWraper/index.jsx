@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setIsOnline } from '../../redux/slice/app.slice';
 
 export const InternetConnectionWraper = (props) => {
+  const dispatch = useDispatch();
   const [isOnline, setOnline] = useState(true);
 
   useEffect(() => {
@@ -9,6 +12,7 @@ export const InternetConnectionWraper = (props) => {
 
   window.addEventListener('online', () => {
     setOnline(true);
+    dispatch(setIsOnline(true));
   });
 
   window.addEventListener('offline', () => {

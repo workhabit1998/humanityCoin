@@ -18,10 +18,10 @@ const CONFIGURE_MENU = [
     action: 'SetHMNTokenAddresses',
     label: 'Set HMN Token Address',
   },
-  {
-    action: 'feeDistributor',
-    label: 'Fee Distribution',
-  },
+  // {
+  //   action: 'feeDistributor',
+  //   label: 'Fee Distribution',
+  // },
   {
     action: 'addTokenToReserve',
     label: 'Add Tokens',
